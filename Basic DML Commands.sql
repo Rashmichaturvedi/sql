@@ -185,4 +185,7 @@ Insert into lasttable values(3,'flag',35,0); --working
 Insert into lasttable values(2,'flag',3,4);---working
 Insert into lasttable values(4,'flag',-2,-1);
 select* from lasttable where (part_no <4 AND part_no >2);
+
+/*It is a good practice to use the SELECT * for the ad-hoc queries only. If you embed the SELECT statement
+in the code such as PHP, Java, Python, Node.js, you should explicitly specify the name of columns from which you want to get data */
 ---basic ddl and dml completed 
