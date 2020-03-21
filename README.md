@@ -2,7 +2,9 @@
 
 
 
-<Strong>Campus prepartion </Strong>
+<Strong>Campus prepartion </Strong>.  Contains all the
+Important topics of dbms practise on MySql sqlyog using Xammp server 
+
 
 
 
