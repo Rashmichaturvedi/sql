@@ -443,3 +443,50 @@ END$$
 DELIMITER ;
 CALL LeaveDemo(@result);
 SELECT @result;
+ show tables;
+use campus_prepartion;
+select * from customers;
+alter table customers add email varchar(10);
+Insert into customers value(7,'raj','singh',300,'r@gmail.com'),(9,'farhan','khan',200,'f@gmail.com');
+--Cursor : declare , open , fetch
+/* develop a stored procedure that creates an email list of all employees in the employees table in the sample database.*/
+
+---------------------------------
+DELIMITER $$
+CREATE PROCEDURE createEmail (
+    INOUT emailList varchar(4000)
+)
+BEGIN
+    DECLARE finished INTEGER DEFAULT 0;
+    DECLARE emailAddress varchar(100) DEFAULT "";
+ 
+    -- declare cursor for employee email
+    DEClARE curEmail 
+        CURSOR FOR 
+            SELECT email FROM customers;
+ 
+    -- declare NOT FOUND handler
+    DECLARE CONTINUE HANDLER 
+        FOR NOT FOUND SET finished = 1;
+ 
+    OPEN curEmail;
+ 
+    getEmail: LOOP
+        FETCH curEmail INTO emailAddress;
+        IF finished = 1 THEN 
+            LEAVE getEmail;
+        END IF;
+        -- build email list
+        SET emailList = CONCAT(emailAddress,";",emailList);
+    END LOOP getEmail;
+    CLOSE curEmail;
+ 
+END$$
+DELIMITER ;
+
+
+
+SET @emailList = ""; 
+CALL createEmail(@emailList); 
+SELECT @emailList;
+--Handling errors
