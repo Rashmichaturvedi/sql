@@ -1,0 +1,22 @@
+// this is from coursera 
+Go to the git-test folder in your cmd window/terminal and type the following at the prompt to initialize the folder as a Git repository:
+git init
+
+Checking your Git repository status
+git status
+To add files to the staging area of your Git repository, type:
+git add .
+git add ~A     -- to commit all files of folder
+
+Commiting to the Git repository
+git commit -m "first commit"
+
+Checking the log of Git commits
+git log --oneline
+
+Checking out a file from an earlier commit
+git checkout <second commit's number> index.html
+Resetting the Git repository
+git reset HEAD index.html
+then type
+git checkout -- index.html
