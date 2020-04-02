@@ -20,3 +20,6 @@ Resetting the Git repository
 git reset HEAD index.html
 then type
 git checkout -- index.html
+To clone other person respority
+
+git clone __________________________________their link_.git
